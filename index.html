@@ -4,160 +4,357 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>조선의대 테니스 동아리 ACE 45기 모집</title>
+  
+  <!-- SEO & Meta -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="조선의대 테니스 동아리 ACE 45기 모집">
   <meta property="og:description" content="전국 의대 4연속 우승! 초보도 환영하는 테니스 동아리 ACE에서 45기 신입부원을 모집합니다.">
   <meta property="og:image" content="images/og_thumbnail.png">
   <meta name="description" content="조선의대 테니스 동아리 ACE 45기 신입부원 모집. 전국 의대 4연속 우승, 초보 환영, 장비 대여 가능.">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- 폰트: Pretendard (가독성 좋고 세련됨) -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+  <!-- 애니메이션 라이브러리: AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
-    :root{--green:#1b5e20;--deep:#0b3d2e;--gold:#f3b33d;--light:#f6f8f7;--dark:#0d1b1e;--white:#ffffff;}
-    *{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'Noto Sans KR',sans-serif;color:var(--dark);background:var(--light);line-height:1.6;}
-    a{color:inherit;text-decoration:none;}
-    .container{max-width:1100px;margin:0 auto;padding:0 22px;}
-    .photo img{width:100%;height:100%;object-fit:cover;border-radius:16px;}
+    :root {
+      --green: #154c30;      /* 고급스러운 윔블던 그린 */
+      --deep: #0a291f;       /* 더 깊은 녹색 */
+      --gold: #d4af37;       /* 메탈릭 골드 */
+      --gold-light: #f9eeb9; 
+      --light: #f8f9fa;
+      --dark: #111111;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
 
+    /* 기본 설정 */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      color: var(--dark);
+      background: var(--light);
+      line-height: 1.65;
+      word-break: keep-all;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; transition: 0.2s; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; }
+    
     /* Nav */
-    .nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.05);}
-    .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px;}
-    .logo{font-weight:800;letter-spacing:0.5px;color:var(--deep);font-size:1rem;cursor:pointer;flex-shrink:0;}
-    .logo span{color:var(--gold);}
-    .links a{margin-left:16px;font-weight:600;font-size:0.95rem;opacity:0.9;}
-    .links a:hover{color:var(--green);}
-    .nav .cta{padding:9px 16px;border-radius:999px;background:var(--green);color:#fff;font-weight:700;white-space:nowrap;flex-shrink:0;}
-    .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;z-index:1100;flex-shrink:0;}
-    .hamburger .bar{width:22px;height:2.5px;background:var(--deep);border-radius:4px;transition:all 0.3s ease;}
-    .hamburger.active .bar:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
-    .hamburger.active .bar:nth-child(2){opacity:0;}
-    .hamburger.active .bar:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
-    .mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);z-index:1050;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
-    .mobile-menu.open{display:flex;}
-    .mobile-menu a{font-size:1.3rem;font-weight:700;color:var(--deep);padding:8px 20px;border-radius:12px;transition:background 0.2s;}
-    .mobile-menu a:hover{background:rgba(27,94,32,0.08);}
-    .mobile-menu .mobile-cta{margin-top:8px;padding:14px 32px;border-radius:999px;background:var(--green);color:#fff;font-weight:800;font-size:1.1rem;}
+    .nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 16px; }
+    .logo { font-weight: 800; letter-spacing: -0.5px; color: var(--deep); font-size: 1.1rem; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; gap: 6px; }
+    .logo span { color: var(--gold); }
+    .links a { margin-left: 20px; font-weight: 600; font-size: 0.95rem; opacity: 0.7; position: relative; }
+    .links a:hover { opacity: 1; color: var(--green); }
+    .links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0%; height: 2px;
+      background: var(--green); transition: width 0.3s;
+    }
+    .links a:hover::after { width: 100%; }
 
-    /* Hero */
-    .hero{background:linear-gradient(135deg,var(--deep),var(--green));color:var(--white);padding:80px 0 60px;position:relative;overflow:hidden;}
-    .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,0.1);width:220px;height:220px;filter:blur(1px);}
-    .hero:before{top:-60px;right:-40px;}
-    .hero:after{bottom:-70px;left:-70px;}
-    .hero-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:28px;align-items:center;}
-    .pill{display:inline-block;background:rgba(255,255,255,0.15);padding:6px 12px;border-radius:999px;font-size:0.85rem;font-weight:700;margin-bottom:14px;}
-    .hero h1{font-size:2.35rem;line-height:1.25;margin-bottom:14px;}
-    .hero p{opacity:0.9;margin-bottom:20px;}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;}
-    .btn{display:inline-block;background:var(--gold);color:#1c1c1c;font-weight:800;padding:12px 20px;border-radius:999px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:0.95rem;}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.5);color:#fff;}
-    #recruit .btn.ghost{border:1px solid var(--green);color:var(--green);}
-    .hero-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:20px;border-radius:18px;backdrop-filter:blur(6px);}
-    .hero-card h3{font-size:1.1rem;margin-bottom:8px;}
-    .hero-card ul{list-style:none;margin-top:8px;}
-    .hero-card li{margin:6px 0;font-size:0.95rem;opacity:0.95;}
+    .nav .cta {
+      padding: 10px 20px; border-radius: 99px;
+      background: var(--deep); color: #fff;
+      font-weight: 700; font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(21, 76, 48, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav .cta:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(21, 76, 48, 0.4); background: var(--green); }
+
+    /* Hamburger */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 6px; z-index: 1100; flex-shrink: 0; }
+    .hamburger .bar { width: 24px; height: 2px; background: var(--deep); border-radius: 4px; transition: all 0.3s ease; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(15px);
+      z-index: 1050; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; animation: fadeIn 0.3s ease; }
+    .mobile-menu a { font-size: 1.4rem; font-weight: 700; color: var(--deep); }
+    .mobile-menu .mobile-cta {
+      margin-top: 10px; padding: 16px 40px; border-radius: 99px;
+      background: var(--green); color: #fff; font-size: 1.2rem;
+      box-shadow: 0 10px 20px rgba(21, 76, 48, 0.25);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      /* 고화질 테니스 코트 배경 + 어두운 오버레이 */
+      background: linear-gradient(135deg, rgba(10, 41, 31, 0.9), rgba(21, 76, 48, 0.85)),
+                  url('https://images.unsplash.com/photo-1622163642998-1ea36746b6e9?q=80&w=1920&auto=format&fit=crop');
+      background-size: cover; background-position: center; background-attachment: fixed;
+      color: var(--white); padding: 140px 0 100px; overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 40px; align-items: center; }
+    
+    .pill {
+      display: inline-block; background: rgba(212, 175, 55, 0.2); 
+      border: 1px solid rgba(212, 175, 55, 0.5); color: #ffd700;
+      padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; font-weight: 700; 
+      margin-bottom: 20px; backdrop-filter: blur(4px);
+    }
+    .hero h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 20px; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    .hero p { opacity: 0.9; margin-bottom: 32px; font-size: 1.1rem; font-weight: 400; max-width: 90%; }
+    
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--gold); color: #1c1c1c; font-weight: 800;
+      padding: 14px 28px; border-radius: 99px; border: none; cursor: pointer;
+      font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5); }
+    .btn.ghost {
+      background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff; box-shadow: none; backdrop-filter: blur(4px);
+    }
+    .btn.ghost:hover { background: rgba(255, 255, 255, 0.2); border-color: #fff; }
+
+    /* Hero Glass Card */
+    .hero-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 30px; border-radius: 24px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .hero-card h3 { font-size: 1.2rem; margin-bottom: 16px; color: var(--gold); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;}
+    .hero-card ul { list-style: none; }
+    .hero-card li { margin: 10px 0; font-size: 1rem; opacity: 0.95; display: flex; align-items: center; gap: 8px; }
 
     /* Stats */
-    .stats{margin-top:-30px;}
-    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
-    .stat{background:#fff;border-radius:16px;padding:20px;box-shadow:0 10px 20px rgba(0,0,0,0.06);}
-    .stat .num{font-size:1.6rem;font-weight:800;color:var(--green);}
-    .stat .label{font-weight:600;opacity:0.8;}
+    .stats { margin-top: -50px; position: relative; z-index: 10; padding-bottom: 20px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .stat {
+      background: #fff; border-radius: 20px; padding: 24px;
+      box-shadow: var(--shadow); text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+    .stat:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
+    .stat .num { font-size: 2rem; font-weight: 800; color: var(--green); display: block; margin-bottom: 4px; }
+    .stat .label { font-weight: 600; font-size: 0.95rem; opacity: 0.7; }
 
-    /* Sections */
-    section{padding:60px 0;scroll-margin-top:90px;}
-    .section-title{font-size:1.7rem;font-weight:800;color:var(--deep);margin-bottom:10px;}
-    .section-sub{opacity:0.8;margin-bottom:24px;}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
-    .card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.05);}
+    /* Common Sections */
+    section { padding: 90px 0; scroll-margin-top: 70px; }
+    .section-title { font-size: 2rem; font-weight: 800; color: var(--deep); margin-bottom: 12px; letter-spacing: -0.5px; }
+    .section-sub { opacity: 0.7; margin-bottom: 40px; font-size: 1.05rem; max-width: 600px; }
+    
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .card {
+      background: #fff; border-radius: 20px; padding: 32px;
+      box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.03);
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--green); }
+    .card p { opacity: 0.8; font-size: 0.98rem; }
 
     /* Activities */
-    .activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
-    .activity-card{padding:18px;border-radius:16px;background:#fff;box-shadow:0 8px 18px rgba(0,0,0,0.05);}
-    .activity-card h4{margin-bottom:8px;color:var(--green);}
-    .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
-    .photo{border-radius:16px;min-height:150px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2e7d32,#66bb6a);color:#fff;font-weight:700;overflow:hidden;position:relative;}
-    .photo .fallback{position:absolute;z-index:0;}
-    .photo img{position:relative;z-index:1;}
+    .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .activity-card {
+      padding: 26px; border-radius: 20px; background: #fff;
+      box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid var(--green);
+    }
+    .activity-card:hover { transform: translateY(-7px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+    .activity-card h4 { margin-bottom: 10px; font-size: 1.2rem; color: var(--deep); font-weight: 700; }
+    .activity-card p { opacity: 0.8; font-size: 0.95rem; line-height: 1.6; }
+    
+    /* Photo Grid */
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 40px; }
+    .photo {
+      border-radius: 16px; aspect-ratio: 4/3; 
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+      overflow: hidden; position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .photo:hover img { transform: scale(1.08); }
+    .photo .fallback { position: absolute; font-weight: 700; color: #999; z-index: 0; }
+    .photo img { position: relative; z-index: 1; }
 
     /* FAQ */
-    .faq-item{border-radius:16px;background:#fff;padding:16px 18px;margin-bottom:10px;box-shadow:0 6px 16px rgba(0,0,0,0.04);}
-    .faq-item button{background:none;border:none;width:100%;text-align:left;font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:var(--dark);}
-    .faq-item button span.icon{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--light);font-size:1.1rem;transition:transform 0.3s ease,background 0.3s ease;flex-shrink:0;margin-left:12px;}
-    .faq-item.open button span.icon{transform:rotate(45deg);background:var(--green);color:#fff;}
-    .faq-item .answer{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding-top 0.35s ease;opacity:0.8;padding-top:0;}
-    .faq-item.open .answer{max-height:400px;padding-top:10px;}
+    .faq-item {
+      border-radius: 16px; background: #fff; padding: 20px 24px; margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.02);
+      transition: transform 0.2s;
+    }
+    .faq-item:hover { transform: translateX(5px); }
+    .faq-item button {
+      background: none; border: none; width: 100%; text-align: left;
+      font-weight: 700; font-size: 1.05rem; color: var(--deep);
+      display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+      font-family: 'Pretendard', sans-serif;
+    }
+    .faq-item button .icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%; background: var(--light);
+      font-size: 1.2rem; transition: 0.3s ease; color: var(--green);
+    }
+    .faq-item.open button .icon { transform: rotate(45deg); background: var(--green); color: #fff; }
+    .faq-item .answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease;
+      opacity: 0.8; font-size: 0.95rem; line-height: 1.6;
+    }
+    .faq-item.open .answer { max-height: 400px; padding-top: 14px; }
 
     /* Schedule */
-    .schedule{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
-    .schedule .card h4{color:var(--green);margin-bottom:6px;}
+    .schedule .card { text-align: center; border-top: 4px solid var(--gold); }
+    .schedule .card h4 { color: var(--deep); font-size: 1.2rem; margin-bottom: 8px; }
 
     /* 동소식 */
-    .dongso-box{background:linear-gradient(135deg,#ffffff,#fdf8ee);border:1px solid rgba(243,179,61,0.2);border-radius:18px;padding:26px;margin-top:8px;}
-    .dongso-info{display:flex;align-items:center;gap:10px;background:rgba(243,179,61,0.1);padding:12px 16px;border-radius:12px;margin-bottom:20px;font-weight:600;font-size:0.95rem;}
-    .dongso-info .emoji{font-size:1.3rem;}
-
-    .dongso-timeline{position:relative;padding-left:28px;}
-    .dongso-timeline::before{content:'';position:absolute;left:10px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--gold),var(--green));border-radius:2px;}
-    .dongso-step{position:relative;margin-bottom:20px;}
-    .dongso-step:last-child{margin-bottom:0;}
-    .dongso-step .dot{position:absolute;left:-24px;top:4px;width:14px;height:14px;border-radius:50%;border:3px solid var(--gold);background:#fff;z-index:1;}
-    .dongso-step:last-child .dot{border-color:var(--green);}
-    .dongso-step .step-label{display:inline-block;font-size:0.78rem;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:4px;}
-    .dongso-step:first-child .step-label{background:var(--gold);color:#1c1c1c;}
-    .dongso-step:last-child .step-label{background:var(--green);color:#fff;}
-    .dongso-step h4{font-size:1.1rem;color:var(--deep);margin-bottom:2px;}
-    .dongso-step .map-link{display:inline-flex;align-items:center;gap:5px;margin-top:6px;background:var(--deep);color:#fff;font-weight:700;font-size:0.82rem;padding:7px 14px;border-radius:999px;transition:background 0.2s;}
-    .dongso-step .map-link:hover{background:var(--green);}
-    .dongso-step .map-link svg{width:14px;height:14px;fill:currentColor;}
+    .dongso-box {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 24px; padding: 32px; margin-top: 10px;
+      box-shadow: var(--shadow); position: relative; overflow: hidden;
+    }
+    .dongso-box::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+      background: linear-gradient(to right, var(--gold), var(--green));
+    }
+    .dongso-info {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--gold-light); color: #5a4a15;
+      padding: 16px 20px; border-radius: 16px; margin-bottom: 30px;
+      font-weight: 600; font-size: 1rem;
+    }
+    .dongso-timeline { position: relative; padding-left: 32px; border-left: 2px solid #eee; margin-left: 10px; }
+    .dongso-step { position: relative; margin-bottom: 28px; }
+    .dongso-step:last-child { margin-bottom: 0; }
+    .dongso-step .dot {
+      position: absolute; left: -39px; top: 4px; width: 16px; height: 16px;
+      border-radius: 50%; border: 3px solid #fff; background: var(--gold);
+      box-shadow: 0 0 0 2px var(--gold); z-index: 1;
+    }
+    .dongso-step:last-child .dot { background: var(--green); box-shadow: 0 0 0 2px var(--green); }
+    .dongso-step .step-label {
+      display: inline-block; font-size: 0.8rem; font-weight: 800;
+      padding: 4px 10px; border-radius: 6px; margin-bottom: 6px;
+      background: var(--gold); color: #fff;
+    }
+    .dongso-step:last-child .step-label { background: var(--green); }
+    .dongso-step h4 { font-size: 1.2rem; color: var(--deep); margin-bottom: 4px; }
+    .map-link {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;
+      background: #f1f3f5; color: var(--dark); font-weight: 600;
+      font-size: 0.85rem; padding: 8px 16px; border-radius: 99px;
+    }
+    .map-link:hover { background: var(--green); color: #fff; }
+    .map-link svg { width: 14px; height: 14px; fill: currentColor; }
 
     /* Recruit */
-    .recruit-box{background:linear-gradient(135deg,#ffffff,#f2f7f3);border:1px solid rgba(0,0,0,0.05);border-radius:18px;padding:24px;}
-    .recruit-box ul{list-style:none;}
-    .recruit-box li{margin:8px 0;}
-    .highlight{color:var(--green);font-weight:700;}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
-    .contact-card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 6px 16px rgba(0,0,0,0.04);border-left:4px solid var(--green);}
-    .contact-card.sub{border-left-color:var(--gold);}
-    .contact-card .role{font-size:0.8rem;font-weight:700;color:#fff;display:inline-block;padding:3px 8px;border-radius:999px;margin-bottom:6px;}
-    .contact-card .role.president{background:var(--green);}
-    .contact-card .role.manager{background:var(--gold);color:#1c1c1c;}
-    .contact-card .name{font-weight:800;font-size:1.05rem;}
-    .contact-card .phone{opacity:0.8;font-size:0.95rem;margin-top:2px;}
-    .contact-card .btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
-    .contact-card .btns button{font-family:'Noto Sans KR',sans-serif;font-size:0.82rem;font-weight:700;padding:7px 14px;border-radius:999px;cursor:pointer;border:none;}
-    .btn-sms-style{background:var(--green);color:#fff;}
-    .btn-copy-style{background:var(--light);color:var(--dark);border:1px solid rgba(0,0,0,0.1)!important;}
+    .recruit-box {
+      background: linear-gradient(135deg, #fff, #f4fcf7);
+      border: 1px solid rgba(21, 76, 48, 0.1);
+      border-radius: 24px; padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    .recruit-box ul { list-style: none; margin-bottom: 30px; }
+    .recruit-box li { margin: 12px 0; font-size: 1.05rem; display: flex; gap: 8px; }
+    .highlight { color: var(--green); font-weight: 800; min-width: 80px; }
+    
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .contact-card {
+      background: #fff; border-radius: 18px; padding: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.04);
+      position: relative; overflow: hidden; transition: transform 0.3s;
+    }
+    .contact-card:hover { transform: translateY(-5px); }
+    .contact-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+      background: var(--green);
+    }
+    .contact-card.sub::before { background: var(--gold); }
+    
+    .role { font-size: 0.75rem; font-weight: 800; color: #fff; padding: 4px 10px; border-radius: 99px; display: inline-block; margin-bottom: 8px; }
+    .role.president { background: var(--green); }
+    .role.manager { background: var(--gold); }
+    
+    .contact-card .name { font-weight: 800; font-size: 1.2rem; margin-bottom: 4px; }
+    .contact-card .phone { font-size: 1rem; opacity: 0.7; font-family: monospace; letter-spacing: -0.5px; }
+    .contact-card .btns { display: flex; gap: 8px; margin-top: 16px; }
+    .contact-card button {
+      flex: 1; padding: 10px 0; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; font-size: 0.9rem; transition: 0.2s; font-family: 'Pretendard', sans-serif;
+    }
+    .btn-sms-style { background: var(--deep); color: #fff; }
+    .btn-sms-style:hover { background: var(--green); }
+    .btn-copy-style { background: #f1f3f5; color: var(--dark); }
+    .btn-copy-style:hover { background: #e9ecef; }
 
     /* Checklist */
-    .checklist{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
-    .check{background:#fff;border-radius:16px;padding:16px;box-shadow:0 8px 18px rgba(0,0,0,0.04);border-left:5px solid var(--gold);}
-
-    footer{background:#0e2e22;color:#d9e6df;padding:26px 0;text-align:center;}
-    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(12px);background:#0b3d2e;color:#fff;padding:10px 16px;border-radius:999px;box-shadow:0 10px 25px rgba(0,0,0,0.18);opacity:0;pointer-events:none;transition:all 0.25s ease;z-index:2000;font-weight:700;font-size:0.95rem;}
-    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-
-    @media(max-width:900px){
-      .hero-grid{grid-template-columns:1fr;}
-      .two-col{grid-template-columns:1fr;}
-      .links{display:none;}
-      .hamburger{display:flex;}
-      /* ✅ 모바일 nav 순서: 로고(왼쪽) — 지원하기 — 햄버거(맨 오른쪽) */
-      .nav .wrap{flex-wrap:nowrap;}
-      .logo{order:1;margin-right:auto;}
-      .nav .cta{order:2;margin-left:auto;}
-      .hamburger{order:3;margin-left:8px;}
-      .checklist{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .contact-grid{grid-template-columns:1fr;}
+    .checklist { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .check {
+      background: #fff; border-radius: 16px; padding: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05); text-align: center;
+      font-weight: 700; color: var(--deep); font-size: 0.95rem;
+      border: 1px solid rgba(0,0,0,0.02); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+      transition: transform 0.3s;
     }
-    @media(max-width:560px){
-      .checklist{grid-template-columns:1fr;}
-      .hero h1{font-size:1.7rem;}
+    .check:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .check::before { content: '✅'; font-size: 1.5rem; margin-bottom: 4px; }
+
+    /* Footer */
+    footer { background: #051a13; color: #8da399; padding: 40px 0; text-align: center; font-size: 0.9rem; }
+    
+    /* Toast */
+    .toast {
+      position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%) translateY(20px);
+      background: rgba(11, 61, 46, 0.95); color: #fff; padding: 12px 24px;
+      border-radius: 99px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 2000; font-weight: 600; backdrop-filter: blur(4px);
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Media Queries */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero p { margin: 0 auto 30px; }
+      .hero-actions { justify-content: center; }
+      .links { display: none; }
+      .hamburger { display: flex; }
+      /* 모바일 Nav 순서 재배치 */
+      .nav .wrap { flex-wrap: nowrap; padding: 10px 20px; }
+      .logo { order: 1; margin-right: auto; }
+      .nav .cta { order: 2; margin-left: auto; font-size: 0.85rem; padding: 8px 16px; }
+      .hamburger { order: 3; margin-left: 12px; }
+      
+      .checklist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .checklist { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .section-title { font-size: 1.7rem; }
     }
   </style>
 </head>
 <body>
   <div id="toast" class="toast"></div>
 
+  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="javascript:void(0)" data-scroll="about" data-mobile>동아리 소개</a>
     <a href="javascript:void(0)" data-scroll="activities" data-mobile>활동</a>
@@ -166,9 +363,9 @@
     <a href="javascript:void(0)" data-scroll="recruit" data-mobile class="mobile-cta">지원하기 🎾</a>
   </div>
 
+  <!-- Navigation -->
   <nav class="nav">
     <div class="container wrap">
-      <!-- ✅ 로고 클릭 시 맨 위로 -->
       <div class="logo" data-scroll="top">조선의대 테니스 동아리 <span>ACE</span></div>
       <div class="links">
         <a href="javascript:void(0)" data-scroll="about">동아리 소개</a>
@@ -177,110 +374,135 @@
         <a href="javascript:void(0)" data-scroll="dongso">동소식</a>
         <a href="javascript:void(0)" data-scroll="recruit">모집</a>
       </div>
-      <!-- ✅ 순서: cta → hamburger (모바일에서 CSS order로 햄버거가 맨 오른쪽) -->
       <a class="cta" href="javascript:void(0)" data-scroll="recruit">지원하기</a>
-      <button class="hamburger" id="hamburger" type="button" aria-label="메뉴 열기" aria-expanded="false">
+      <button class="hamburger" id="hamburger" type="button" aria-label="메뉴 열기">
         <div class="bar"></div><div class="bar"></div><div class="bar"></div>
       </button>
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <header class="hero" id="top">
     <div class="container hero-grid">
-      <div>
+      <div data-aos="fade-right" data-aos-duration="1000">
         <span class="pill">전국 의대 4연속 제패 🏆</span>
         <h1>조선의대 테니스 동아리 ACE<br>45기 신입부원 모집 🎾</h1>
-        <p>남녀 모두 함께 즐기는 전국 최강 의대 테니스 동아리. 초보도 환영! 수요일 정규 레슨과 주말 자율 훈련으로 함께 성장합니다.</p>
+        <p>남녀 모두 함께 즐기는 전국 최강 의대 테니스 동아리. 초보도 환영! 라켓을 처음 잡아보는 당신도, 주인공이 될 수 있습니다.</p>
         <div class="hero-actions">
           <a class="btn" href="javascript:void(0)" data-scroll="recruit">지원 방법 보기</a>
           <a class="btn ghost" href="javascript:void(0)" data-scroll="faq">자주 묻는 질문</a>
         </div>
       </div>
-      <div class="hero-card">
-        <h3>ACE 핵심 정보</h3>
+      <div class="hero-card" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <h3>⚡ ACE at a Glance</h3>
         <ul>
-          <li>✔ 동아리 규모: 100+명</li>
-          <li>✔ 모임 횟수: 주 2회</li>
-          <li>✔ 정규 레슨: 수요일 16:00-19:00</li>
-          <li>✔ 자율 훈련: 토요일 10:00-12:00</li>
-          <li>✔ 모집 대상: 의예과 · 간호학과</li>
+          <li>✔ <strong>규모:</strong> 100+명</li>
+          <li>✔ <strong>모임 횟수:</strong> 주 2회</li>
+          <li>✔ <strong>정규 레슨:</strong> 수요일 16:00-19:00</li>
+          <li>✔ <strong>자율 훈련:</strong> 토요일 10:00-12:00</li>
+          <li>✔ <strong>장비:</strong> 라켓/볼 100% 무료 대여</li>
+          <li>✔ <strong>모집 대상:</strong> 의예과 · 간호학과</li>
         </ul>
       </div>
     </div>
   </header>
 
-  <section class="stats container" aria-label="ACE 핵심 수치">
+  <!-- Stats -->
+  <section class="stats container">
     <div class="stats-grid">
-      <div class="stat"><div class="num">4연속</div><div class="label">전국 의대 대회 우승</div></div>
-      <div class="stat"><div class="num">100+</div><div class="label">동아리원 규모</div></div>
-      <div class="stat"><div class="num">주 2회</div><div class="label">정규/자율 훈련</div></div>
-      <div class="stat"><div class="num">초보 환영</div><div class="label">기초-중상급 분리 레슨</div></div>
+      <div class="stat" data-aos="zoom-in" data-aos-delay="0"><span class="num">4연속</span><span class="label">전국 의대 대회 우승</span></div>
+      <div class="stat" data-aos="zoom-in" data-aos-delay="100"><span class="num">100+</span><span class="label">동아리원 규모</span></div>
+      <div class="stat" data-aos="zoom-in" data-aos-delay="200"><span class="num">주 2회</span><span class="label">정규/자율 훈련</span></div>
+      <div class="stat" data-aos="zoom-in" data-aos-delay="300"><span class="num">초보 환영</span><span class="label">기초-중상급 분리 레슨</span></div>
     </div>
   </section>
 
-  <section id="about" aria-labelledby="about-title">
+  <!-- About -->
+  <section id="about">
     <div class="container">
-      <h2 class="section-title" id="about-title">테니스란?</h2>
-      <p class="section-sub">네트를 넘어온 공이 두 번 튀기기 전에 라켓으로 상대 진영에 넘기는 라켓 구기 스포츠입니다. 1대1 단식과 2대2 복식이 있으며, 남녀노소 오래 즐길 수 있는 스포츠로 큰 인기를 얻고 있습니다.</p>
+      <h2 class="section-title" data-aos="fade-up">테니스란?</h2>
+      <p class="section-sub" data-aos="fade-up" data-aos-delay="100">네트를 넘어온 공이 두 번 튀기기 전에 라켓으로 상대 진영에 넘기는 라켓 구기 스포츠입니다. 1대1 단식과 2대2 복식이 있으며, 남녀노소 오래 즐길 수 있는 스포츠로 큰 인기를 얻고 있습니다.</p>
       <div class="two-col">
-        <div class="card"><h3>ACE는 이런 동아리!</h3><p>조선의대 스포츠 동아리 중 남녀 모두 동등하게 선수로 참여 가능한 몇 안 되는 동아리입니다. 처음 시작하는 분들도 매주 수요일 현역 선수들에게 레슨을 받으며 빠르게 성장합니다.</p></div>
-        <div class="card"><h3>초보도 문제 없음</h3><p>신입생 대부분이 처음 테니스를 시작합니다. 기초 레슨과 중상급 레슨을 분리해 진행하고, 선후배 간 활발한 경기를 통해 즐겁게 실력을 키울 수 있습니다.</p></div>
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
+          <h3>Why ACE?</h3>
+          <p>조선의대 스포츠 동아리 중 남녀 모두 동등하게 선수로 참여 가능한 몇 안 되는 동아리입니다. 처음 시작하는 분들도 매주 수요일 현역 선수들에게 레슨을 받으며 빠르게 성장합니다.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="250">
+          <h3>🌱 초보자 완벽 케어</h3>
+          <p>신입생 대부분이 처음 테니스를 시작합니다. 기초 레슨과 중상급 레슨을 분리해 진행하고, 선후배 간 활발한 경기를 통해 즐겁게 실력을 키울 수 있습니다.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="activities" aria-labelledby="activities-title">
+  <!-- Activities -->
+  <section id="activities" style="background:#f4fcf7;">
     <div class="container">
-      <h2 class="section-title" id="activities-title">ACE 주요 활동</h2>
-      <p class="section-sub">대회 참가부터 교류전, 친목 행사까지 테니스와 사람을 모두 잡습니다.</p>
+      <h2 class="section-title" data-aos="fade-up">ACE 주요 활동</h2>
+      <p class="section-sub" data-aos="fade-up" data-aos-delay="100">대회 참가부터 교류전, 친목 행사까지 테니스와 사람을 모두 잡습니다.</p>
+      
       <div class="activity-grid">
-        <div class="activity-card"><h4>전국 의대 테니스 대회 (서울대 대회)</h4><p>서울대에서 1박 2일 일정으로 개최되는 대회. 조선대가 4년 연속 단·복식 우승을 달성했습니다.</p></div>
-        <div class="activity-card"><h4>영호남 테니스 대회</h4><p>원광대·계명대·인제대·조선대가 순번제로 주최. 대회 후 4개 대학 연합 야유회까지 진행됩니다.</p></div>
-        <div class="activity-card"><h4>교류전</h4><p>조선대 치과대학 동아리 및 전남대 의과대학과 교류전을 진행하며 다양한 학교와 실력을 겨룹니다.</p></div>
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="100">
+          <h4>전국 의대 테니스 대회 (서울대 대회)</h4>
+          <p>서울대에서 1박 2일 일정으로 개최되는 대회. 조선대가 4년 연속 단·복식 우승을 달성했습니다.</p>
+        </div>
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
+          <h4>영호남 테니스 대회</h4>
+          <p>원광대·계명대·인제대·조선대가 순번제로 주최. 대회 후 4개 대학 연합 야유회까지 진행됩니다.</p>
+        </div>
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="300">
+          <h4>교류전</h4>
+          <p>조선대 치과대학 동아리 및 전남대 의과대학과 교류전을 진행하며 다양한 학교와 실력을 겨룹니다.</p>
+        </div>
       </div>
-      <div style="margin-top:22px" class="photo-grid">
-        <div class="photo"><span class="fallback">📸 활동 사진</span><img src="images/activity_01.png" alt="활동 사진" onerror="this.style.display='none'"></div>
-        <div class="photo"><span class="fallback">📸 대회 사진</span><img src="images/activity_02.png" alt="대회 사진" onerror="this.style.display='none'"></div>
-        <div class="photo"><span class="fallback">📸 야유회 사진</span><img src="images/activity_03.png" alt="야유회 사진" onerror="this.style.display='none'"></div>
-        <div class="photo"><span class="fallback">📸 레슨 사진</span><img src="images/activity_04.png" alt="레슨 사진" onerror="this.style.display='none'"></div>
+
+      <div class="photo-grid">
+        <div class="photo" data-aos="fade-up" data-aos-delay="100"><span class="fallback">📸 활동 사진</span><img src="images/activity_01.png" alt="활동 사진" onerror="this.style.display='none'"></div>
+        <div class="photo" data-aos="fade-up" data-aos-delay="200"><span class="fallback">📸 대회 사진</span><img src="images/activity_02.png" alt="대회 사진" onerror="this.style.display='none'"></div>
+        <div class="photo" data-aos="fade-up" data-aos-delay="300"><span class="fallback">📸 야유회 사진</span><img src="images/activity_03.png" alt="야유회 사진" onerror="this.style.display='none'"></div>
+        <div class="photo" data-aos="fade-up" data-aos-delay="400"><span class="fallback">📸 레슨 사진</span><img src="images/activity_04.png" alt="레슨 사진" onerror="this.style.display='none'"></div>
       </div>
     </div>
   </section>
 
-  <section id="faq" aria-labelledby="faq-title">
+  <!-- FAQ -->
+  <section id="faq">
     <div class="container">
-      <h2 class="section-title" id="faq-title">ACE FAQ</h2>
-      <p class="section-sub">신입생이 가장 많이 궁금해하는 질문을 모았습니다.</p>
-      <div class="faq-item"><button type="button" aria-expanded="false">Q1. 처음 배우는 사람도 들어갈 수 있나요? <span class="icon" aria-hidden="true">+</span></button><div class="answer" role="region">당연합니다! 매년 신입생 대부분이 처음 테니스를 배우며, 함께 대회에도 참가합니다.</div></div>
-      <div class="faq-item"><button type="button" aria-expanded="false">Q2. 동아리 활동에는 어떤 것들이 있나요? <span class="icon" aria-hidden="true">+</span></button><div class="answer" role="region">전국 의대 대회, 영호남 대회, 교류전 등 다양한 대외활동과 친목 행사가 있습니다.</div></div>
-      <div class="faq-item"><button type="button" aria-expanded="false">Q3. 의대생만 하는 동아리인가요? <span class="icon" aria-hidden="true">+</span></button><div class="answer" role="region">아닙니다. 매년 의예과와 간호학과를 함께 모집하며, 동일한 회원으로 활동합니다.</div></div>
-      <div class="faq-item"><button type="button" aria-expanded="false">Q4. 레슨은 어떤 식으로 진행되나요? <span class="icon" aria-hidden="true">+</span></button><div class="answer" role="region">매주 수요일 오후에 조선대 테니스장에서 현역 선수들과 초급/중상급 레슨을 진행합니다.</div></div>
-      <div class="faq-item"><button type="button" aria-expanded="false">Q5. 개인 장비가 필요하나요? <span class="icon" aria-hidden="true">+</span></button><div class="answer" role="region">공용 라켓과 테니스공을 모두 대여해 드립니다. 부담 없이 참여하세요!</div></div>
-      <div class="faq-item"><button type="button" aria-expanded="false">Q6. 선배들과 친해지려면 밥약이 필요한가요? <span class="icon" aria-hidden="true">+</span></button><div class="answer" role="region">필요 없습니다. 정기 활동에 참여하면 자연스럽게 친해질 수 있는 분위기입니다.</div></div>
+      <h2 class="section-title" data-aos="fade-up">ACE FAQ</h2>
+      <p class="section-sub" data-aos="fade-up">신입생이 가장 많이 궁금해하는 질문을 모았습니다.</p>
+      <div data-aos="fade-up">
+        <div class="faq-item"><button>Q1. 처음 배우는 사람도 들어갈 수 있나요? <span class="icon">+</span></button><div class="answer">당연합니다! 매년 신입생 대부분이 처음 테니스를 배우며, 함께 대회에도 참가합니다.</div></div>
+        <div class="faq-item"><button>Q2. 동아리 활동에는 어떤 것들이 있나요? <span class="icon">+</span></button><div class="answer">전국 의대 대회, 영호남 대회, 교류전 등 다양한 대외활동과 친목 행사가 있습니다.</div></div>
+        <div class="faq-item"><button>Q3. 의대생만 하는 동아리인가요? <span class="icon">+</span></button><div class="answer">아닙니다. 매년 의예과와 간호학과를 함께 모집하며, 동일한 회원으로 활동합니다.</div></div>
+        <div class="faq-item"><button>Q4. 레슨은 어떤 식으로 진행되나요? <span class="icon">+</span></button><div class="answer">매주 수요일 오후에 조선대 테니스장에서 현역 선수들과 초급/중상급 레슨을 진행합니다.</div></div>
+        <div class="faq-item"><button>Q5. 개인 장비가 필요하나요? <span class="icon">+</span></button><div class="answer">공용 라켓과 테니스공을 모두 대여해 드립니다. 부담 없이 참여하세요!</div></div>
+        <div class="faq-item"><button>Q6. 선배들과 친해지려면 밥약이 필요한가요? <span class="icon">+</span></button><div class="answer">필요 없습니다. 정기 활동에 참여하면 자연스럽게 친해질 수 있는 분위기입니다.</div></div>
+      </div>
     </div>
   </section>
 
-  <section id="schedule" aria-labelledby="schedule-title">
+  <!-- Schedule -->
+  <section id="schedule">
     <div class="container">
-      <h2 class="section-title" id="schedule-title">정기 일정</h2>
-      <p class="section-sub">정규 레슨과 자율 훈련으로 꾸준히 실력을 쌓습니다.</p>
+      <h2 class="section-title" data-aos="fade-up">정기 일정</h2>
+      <p class="section-sub" data-aos="fade-up">정규 레슨과 자율 훈련으로 꾸준히 실력을 쌓습니다.</p>
       <div class="schedule">
-        <div class="card"><h4>정규 레슨</h4><p>매주 수요일 오후 4-7시</p><p>장소: 의과대학 3호관 앞 장미공원 옆 조선대 테니스장</p></div>
-        <div class="card"><h4>자율 훈련</h4><p>토요일 오전 10-12시</p><p>정규 레슨 외에도 공강 시간과 토요일에 자유롭게 운동합니다.</p></div>
-        <div class="card"><h4>방학 기간</h4><p>정규 훈련은 없음. 원하는 부원끼리 실내 테니스장 이용 및 테니스 여행을 진행합니다.</p></div>
+        <div class="card" data-aos="fade-up" data-aos-delay="0"><h4>정규 레슨</h4><p>매주 수요일 오후 4-7시</p><p>장소: 의과대학 3호관 앞 장미공원 옆 조선대 테니스장</p></div>
+        <div class="card" data-aos="fade-up" data-aos-delay="100"><h4>자율 훈련</h4><p>토요일 오전 10-12시</p><p>정규 레슨 외에도 공강 시간과 토요일에 자유롭게 운동합니다.</p></div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200"><h4>방학 기간</h4><p>정규 훈련은 없음. 원하는 부원끼리 실내 테니스장 이용 및 테니스 여행을 진행합니다.</p></div>
       </div>
     </div>
   </section>
 
   <!-- 동소식 -->
-  <section id="dongso" aria-labelledby="dongso-title">
+  <section id="dongso">
     <div class="container">
-      <h2 class="section-title" id="dongso-title">📣 동소식 당일 안내</h2>
-      <p class="section-sub">ACE에 관심이 있다면 동소식날 꼭 방문해 주세요!</p>
+      <h2 class="section-title" data-aos="fade-up">📣 동소식 당일 안내</h2>
+      <p class="section-sub" data-aos="fade-up">ACE에 관심이 있다면 동소식날 꼭 방문해 주세요!</p>
 
-      <div class="dongso-box">
+      <div class="dongso-box" data-aos="zoom-in-up">
         <div class="dongso-info">
-          <span class="emoji">🕕</span>
+          <span style="font-size:1.4rem; margin-right:8px;">🕕</span>
           동소식 행사 18:00 – 22:00 → 행사 종료 후 다같이 출발!
         </div>
 
@@ -289,8 +511,8 @@
             <div class="dot"></div>
             <span class="step-label">1차</span>
             <h4>동방삼겹</h4>
-            <p style="opacity:0.7;font-size:0.9rem;margin-top:2px;">동소식 행사 종료 후 바로 이동</p>
-            <a href="https://naver.me/Ffeo6nzO" target="_blank" rel="noopener noreferrer" class="map-link">
+            <p style="opacity:0.7; font-size:0.95rem;">동소식 행사 종료 후 바로 이동</p>
+            <a href="https://naver.me/Ffeo6nzO" target="_blank" class="map-link">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
               네이버 지도
             </a>
@@ -299,8 +521,8 @@
             <div class="dot"></div>
             <span class="step-label">2차</span>
             <h4>산수유파전빈대떡</h4>
-            <p style="opacity:0.7;font-size:0.9rem;margin-top:2px;">1차 이후 이동</p>
-            <a href="https://naver.me/5PVvjumP" target="_blank" rel="noopener noreferrer" class="map-link">
+            <p style="opacity:0.7; font-size:0.95rem;">1차 이후 이동</p>
+            <a href="https://naver.me/5PVvjumP" target="_blank" class="map-link">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
               네이버 지도
             </a>
@@ -310,36 +532,42 @@
     </div>
   </section>
 
-  <section id="recruit" aria-labelledby="recruit-title">
+  <!-- Recruit -->
+  <section id="recruit">
     <div class="container">
-      <h2 class="section-title" id="recruit-title">45기 모집 안내</h2>
-      <p class="section-sub">동소식날까지 모집, 인원 확정 후 신환회 진행 예정입니다.</p>
-      <div class="recruit-box">
+      <h2 class="section-title" data-aos="fade-up">45기 모집 안내</h2>
+      <p class="section-sub" data-aos="fade-up">동소식날까지 모집, 인원 확정 후 신환회 진행 예정입니다.</p>
+      
+      <div class="recruit-box" data-aos="flip-up" data-aos-duration="1000">
         <ul>
           <li><span class="highlight">모집 대상</span>: 의예과, 간호학과</li>
           <li><span class="highlight">모집 규모</span>: 의예과 15명 이하 / 간호학과 5명 이하</li>
-          <li><span class="highlight">모집 기한</span>: 동소식날까지</li>
+          <li><span class="highlight">모집 기한</span>: 동소식 날까지 (조기 마감 주의)</li>
           <li><span class="highlight">지원 방법</span>: 아래 회장 연락처로 문자</li>
-          <li>문자 양식 — <strong>[이름/나이(XX년생)/출신 지역(향우회)/지원 동기]</strong></li>
-        </ul>
+         </ul>
+         <div style="background:rgba(0,0,0,0.03); padding:15px; border-radius:12px; margin-bottom:24px; text-align:center; font-family:monospace;">
+          [이름 / 나이(00년생) / 출신지역(향우회) / 지원동기]
+         </div>
+
+
         <div class="contact-grid">
           <div class="contact-card">
             <span class="role president">회장</span>
             <div class="name">안성민</div>
             <div class="phone">010-4137-9160</div>
             <div class="btns">
-              <button class="btn-sms-style" type="button" onclick="smsAction('01041379160','010-4137-9160')">문자 보내기</button>
-              <button class="btn-copy-style" type="button" onclick="copyAction('010-4137-9160')">번호 복사</button>
+              <button class="btn-sms-style" onclick="smsAction('01041379160','010-4137-9160')">문자 보내기</button>
+              <button class="btn-copy-style" onclick="copyAction('010-4137-9160')">번호 복사</button>
             </div>
           </div>
           <div class="contact-card sub">
             <span class="role manager">총무</span>
             <div class="name">이선우</div>
             <div class="phone">010-9800-4528</div>
-            <p style="font-size:0.82rem;opacity:0.6;margin-top:4px;">회장 연락 안될 시</p>
+            <p style="font-size:0.85rem; opacity:0.6; margin-top:4px;">회장 연락 안될 시</p>
             <div class="btns">
-              <button class="btn-sms-style" type="button" onclick="smsAction('01098004528','010-9800-4528')">문자 보내기</button>
-              <button class="btn-copy-style" type="button" onclick="copyAction('010-9800-4528')">번호 복사</button>
+              <button class="btn-sms-style" onclick="smsAction('01098004528','010-9800-4528')">문자 보내기</button>
+              <button class="btn-copy-style" onclick="copyAction('010-9800-4528')">번호 복사</button>
             </div>
           </div>
         </div>
@@ -347,15 +575,16 @@
     </div>
   </section>
 
-  <section id="checklist" aria-labelledby="checklist-title">
+  <!-- Checklist -->
+  <section id="checklist">
     <div class="container">
-      <h2 class="section-title" id="checklist-title">ACE 체크리스트 ✅</h2>
-      <p class="section-sub">아래 항목에 하나라도 해당된다면 ACE와 잘 맞습니다!</p>
+      <h2 class="section-title" style="text-align:center;" data-aos="fade-up">ACE 체크리스트 ✅</h2>
+      <p class="section-sub" style="text-align:center; margin-left:auto; margin-right:auto;" data-aos="fade-up">하나라도 해당된다면 당신은 이미 ACE!</p>
       <div class="checklist">
-        <div class="check">🎾 테니스를 처음 시작해보고 싶다</div>
-        <div class="check">🏆 전국 대회에 도전해보고 싶다</div>
-        <div class="check">🤝 선후배와 자연스럽게 친해지고 싶다</div>
-        <div class="check">🧰 라켓/공 대여로 부담 없이 시작하고 싶다</div>
+        <div class="check" data-aos="fade-up" data-aos-delay="0">테니스를 처음<br>시작해보고 싶다</div>
+        <div class="check" data-aos="fade-up" data-aos-delay="100">전국 대회에<br>도전해보고 싶다</div>
+        <div class="check" data-aos="fade-up" data-aos-delay="200">선후배와 자연스럽게<br>친해지고 싶다</div>
+        <div class="check" data-aos="fade-up" data-aos-delay="300">라켓/공 대여로 부담 없이<br>시작하고 싶다</div>
       </div>
     </div>
   </section>
@@ -363,18 +592,32 @@
   <footer>
     <div class="container">
       <p>조선의대 테니스 동아리 ACE · 45기 모집</p>
-      <p style="margin-top:6px;opacity:0.8;">문의: 010-4137-9160 (회장 안성민) · 010-9800-4528 (총무 이선우)</p>
+      <p style="margin-top:6px; opacity:0.7;">문의: 010-4137-9160 (회장 안성민) · 010-9800-4528 (총무 이선우)</p>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Init Animate On Scroll
+    AOS.init({
+      once: true,
+      offset: 100,
+      duration: 800,
+      easing: 'ease-out-cubic'
+    });
+
+    // FAQ Accordion
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.querySelector('button').addEventListener('click',()=>{
-        item.classList.toggle('open');
-        item.querySelector('button').setAttribute('aria-expanded',item.classList.contains('open'));
+        const isOpen = item.classList.contains('open');
+        // Close others (Optional: Remove this loop if you want multiple open)
+        document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+        if(!isOpen) item.classList.add('open');
       });
     });
-    /* ✅ 로고 클릭(data-scroll="top") 시 맨 위로 스크롤 */
+
+    // Smooth Scroll & Mobile Menu Close
     document.querySelectorAll('[data-scroll]').forEach(el=>{
       el.addEventListener('click',e=>{
         e.preventDefault();
@@ -388,22 +631,48 @@
         if(el.hasAttribute('data-mobile')) closeMobileMenu();
       });
     });
+
+    // Mobile Menu Logic
     const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
-    function closeMobileMenu(){hamburger.classList.remove('active');mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
-    hamburger.addEventListener('click',()=>{
-      const o=mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('active');
-      hamburger.setAttribute('aria-expanded',o);
-      document.body.style.overflow=o?'hidden':'';
-    });
-    const toast=document.getElementById('toast');
-    function showToast(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(window.__t);window.__t=setTimeout(()=>toast.classList.remove('show'),2200);}
-    function copyToClipboard(text){
-      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).catch(()=>{});}
-      else{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+    function closeMobileMenu(){
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow='';
     }
-    function smsAction(raw,display){copyToClipboard(display);showToast(display+' 번호가 복사되었습니다!');window.location.href='sms:'+raw;}
-    function copyAction(display){copyToClipboard(display);showToast(display+' 번호가 복사되었습니다!');}
+    hamburger.addEventListener('click',()=>{
+      const isOpen=mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      document.body.style.overflow=isOpen?'hidden':'';
+    });
+
+    // Toast & Copy
+    const toast=document.getElementById('toast');
+    function showToast(msg){
+      toast.textContent=msg;
+      toast.classList.add('show');
+      clearTimeout(window.__t);
+      window.__t=setTimeout(()=>toast.classList.remove('show'),2500);
+    }
+    function copyToClipboard(text){
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(text).catch(()=>{});
+      } else {
+        const ta=document.createElement('textarea');
+        ta.value=text; ta.style.position='fixed'; ta.style.left='-9999px';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try{document.execCommand('copy');}catch(e){}
+        document.body.removeChild(ta);
+      }
+    }
+    function smsAction(raw,display){
+      copyToClipboard(display);
+      showToast('번호 복사 완료! 문자 앱으로 이동합니다.');
+      setTimeout(()=>{ window.location.href='sms:'+raw; }, 1000);
+    }
+    function copyAction(display){
+      copyToClipboard(display);
+      showToast('📋 '+display+' 복사되었습니다!');
+    }
   </script>
 </body>
 </html>
