@@ -12,7 +12,7 @@
   <meta property="og:image" content="images/og_thumbnail.png">
   <meta name="description" content="조선의대 테니스 동아리 ACE 45기 신입부원 모집. 전국 의대 4연속 우승, 초보 환영, 장비 대여 가능.">
 
-  <!-- 폰트: Pretendard (가독성 좋고 세련됨) -->
+  <!-- 폰트: Pretendard -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
 
   <!-- 애니메이션 라이브러리: AOS -->
@@ -20,9 +20,9 @@
 
   <style>
     :root {
-      --green: #154c30;      /* 고급스러운 윔블던 그린 */
-      --deep: #0a291f;       /* 더 깊은 녹색 */
-      --gold: #d4af37;       /* 메탈릭 골드 */
+      --green: #154c30;
+      --deep: #0a291f;
+      --gold: #d4af37;
       --gold-light: #f9eeb9; 
       --light: #f8f9fa;
       --dark: #111111;
@@ -30,7 +30,6 @@
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
-    /* 기본 설정 */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -96,7 +95,6 @@
     /* Hero Section */
     .hero {
       position: relative;
-      /* 고화질 테니스 코트 배경 + 어두운 오버레이 */
       background: linear-gradient(135deg, rgba(10, 41, 31, 0.9), rgba(21, 76, 48, 0.85)),
                   url('https://assets.telecomtv.com/assets/telecomtv/bbc-4k-trial-wimbledon-6531.jpg?w=1280&h=720&crop=auto');
       background-size: cover; background-position: center; background-attachment: fixed;
@@ -127,6 +125,73 @@
       color: #fff; box-shadow: none; backdrop-filter: blur(4px);
     }
     .btn.ghost:hover { background: rgba(255, 255, 255, 0.2); border-color: #fff; }
+
+    /* ===== 카페 공지 버튼 (히어로 인라인) ===== */
+    .btn.cafe {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+      box-shadow: none;
+      backdrop-filter: blur(4px);
+      gap: 6px;
+    }
+    .btn.cafe:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .btn.cafe svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+
+    /* ===== 플로팅 카페 버튼 ===== */
+    .floating-cafe {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--deep);
+      color: #fff;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 14px 22px;
+      border-radius: 99px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(212, 175, 55, 0);
+      /* 시작: 숨김 상태 */
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.3s ease,
+                  background 0.2s ease;
+    }
+    .floating-cafe.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .floating-cafe:hover {
+      background: var(--green);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35), 0 0 0 3px rgba(212, 175, 55, 0.3);
+      transform: translateY(-3px) scale(1);
+    }
+    .floating-cafe svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+    
+    /* 플로팅 버튼 subtle pulse (주목 유도, 한번만) */
+    .floating-cafe.visible {
+      animation: floatPulse 0.6s ease 0.5s 1;
+    }
+    @keyframes floatPulse {
+      0%, 100% { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(212, 175, 55, 0); }
+      50% { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3), 0 0 0 6px rgba(212, 175, 55, 0.25); }
+    }
 
     /* Hero Glass Card */
     .hero-card {
@@ -334,7 +399,6 @@
       .hero-actions { justify-content: center; }
       .links { display: none; }
       .hamburger { display: flex; }
-      /* 모바일 Nav 순서 재배치 */
       .nav .wrap { flex-wrap: nowrap; padding: 10px 20px; }
       .logo { order: 1; margin-right: auto; }
       .nav .cta { order: 2; margin-left: auto; font-size: 0.85rem; padding: 8px 16px; }
@@ -342,17 +406,33 @@
       
       .checklist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .contact-grid { grid-template-columns: 1fr; }
+
+      /* 모바일 플로팅 버튼 살짝 작게 */
+      .floating-cafe { 
+        bottom: 20px; right: 16px; 
+        padding: 12px 18px; font-size: 0.85rem; 
+      }
     }
     @media (max-width: 560px) {
       .checklist { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2rem; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .section-title { font-size: 1.7rem; }
+
+      .floating-cafe .cafe-label { display: none; }
+      .floating-cafe { padding: 14px; border-radius: 50%; }
+      .floating-cafe svg { width: 20px; height: 20px; }
     }
   </style>
 </head>
 <body>
   <div id="toast" class="toast"></div>
+
+  <!-- ===== 플로팅 카페 공지 버튼 ===== -->
+  <a href="https://cafe.naver.com/chosunmed26/119" target="_blank" class="floating-cafe" id="floatingCafe">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/><path d="M8 13h8v2H8zm0 4h5v2H8z"/></svg>
+    <span class="cafe-label">카페 공지 보기</span>
+  </a>
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
@@ -391,6 +471,11 @@
         <div class="hero-actions">
           <a class="btn" href="javascript:void(0)" data-scroll="recruit">지원 방법 보기</a>
           <a class="btn ghost" href="javascript:void(0)" data-scroll="faq">자주 묻는 질문</a>
+          <!-- ★ 히어로 인라인 카페 버튼 (이게 화면 밖으로 사라지면 플로팅 등장) -->
+          <a class="btn cafe" id="heroCafeBtn" href="https://cafe.naver.com/chosunmed26/119" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/><path d="M8 13h8v2H8zm0 4h5v2H8z"/></svg>
+            카페 공지 보기
+          </a>
         </div>
       </div>
       <div class="hero-card" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
@@ -549,7 +634,6 @@
           [이름 / 나이(00년생) / 출신지역(향우회) / 지원동기]
          </div>
 
-
         <div class="contact-grid">
           <div class="contact-card">
             <span class="role president">회장</span>
@@ -599,19 +683,49 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Init Animate On Scroll
-    AOS.init({
-      once: true,
-      offset: 100,
-      duration: 800,
-      easing: 'ease-out-cubic'
-    });
+    AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
+
+    // ===== 플로팅 카페 버튼: 히어로 버튼이 사라지면 등장 =====
+    (function() {
+      const heroCafeBtn = document.getElementById('heroCafeBtn');
+      const floatingCafe = document.getElementById('floatingCafe');
+      let isFloatingVisible = false;
+
+      function checkCafeBtn() {
+        if (!heroCafeBtn || !floatingCafe) return;
+        const rect = heroCafeBtn.getBoundingClientRect();
+        // 히어로 버튼의 하단이 뷰포트 위로 사라졌을 때
+        const shouldShow = rect.bottom < 0;
+
+        if (shouldShow && !isFloatingVisible) {
+          floatingCafe.classList.add('visible');
+          isFloatingVisible = true;
+        } else if (!shouldShow && isFloatingVisible) {
+          floatingCafe.classList.remove('visible');
+          isFloatingVisible = false;
+        }
+      }
+
+      // 스크롤 이벤트 (requestAnimationFrame으로 성능 최적화)
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            checkCafeBtn();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // 초기 체크
+      checkCafeBtn();
+    })();
 
     // FAQ Accordion
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.querySelector('button').addEventListener('click',()=>{
         const isOpen = item.classList.contains('open');
-        // Close others (Optional: Remove this loop if you want multiple open)
         document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
         if(!isOpen) item.classList.add('open');
       });
